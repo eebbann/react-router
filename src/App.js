@@ -7,12 +7,13 @@ import Navbar from './component/Navbar';
 import SingleProduct from './pages/SingleProduct';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import { useState } from 'react';
 
-
- const [user, setuser] = useState(null);
- 
 
 function App() {
+
+	const [user, setuser] = useState(null);
+ 
   return <BrowserRouter>
 	 <Navbar/>
 	<Routes>
@@ -21,7 +22,7 @@ function App() {
 		<Route path='products' element={ <Products/>}/>
 		<Route path='products/:id' element={ <SingleProduct/> }/>
 		<Route path='login' element={ <Login setuser={setuser}/> }/>
-		<Route path='dashboard' element={ <Dashboard setuser={setuser}/> }/>
+		<Route path='dashboard' element={ <Dashboard user={user}/> }/>
 		<Route path='*' element={ <Error/>}/>
 
 	</Routes>

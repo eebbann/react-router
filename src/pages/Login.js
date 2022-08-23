@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-const Login = ({setuser}) => {
+const Login = ({ setuser }) => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 
 	const navigate = useNavigate();
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		if (!name || !email) return;
+		setuser({ name: name, email: email });
+		navigate("/dashboard");
 	};
- if (!user || !email) return;
-  setuser({name:name, email:email})
-	navigate('/dashboard')
-
+	
 	return (
 		<section className="section">
 			<form className="form" onSubmit={handleSubmit}>
