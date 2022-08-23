@@ -281,6 +281,11 @@ ul {
 .active {
   color: var(--primary-500);
 }
+.products {
+	display: flex;
+	flex-wrap: wrap;
+	gap:3px
+}
 .products article {
   margin-bottom: 1rem;
 }

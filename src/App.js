@@ -5,10 +5,12 @@ import Products from './pages/Products';
 import Error from './pages/Error';
 import Navbar from './component/Navbar';
 import SingleProduct from './pages/SingleProduct';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
 
 
-
-
+ const [user, setuser] = useState(null);
+ 
 
 function App() {
   return <BrowserRouter>
@@ -17,10 +19,11 @@ function App() {
 		<Route path='/' element={<Home/>   } />
 		<Route path='about' element={ <About/>} />
 		<Route path='products' element={ <Products/>}/>
-		<Route path='products/:productID' element={ <SingleProduct/> }/>
-
+		<Route path='products/:id' element={ <SingleProduct/> }/>
+		<Route path='login' element={ <Login setuser={setuser}/> }/>
+		<Route path='dashboard' element={ <Dashboard setuser={setuser}/> }/>
 		<Route path='*' element={ <Error/>}/>
-	 
+
 	</Routes>
  <footer><small>our footer - 2022</small></footer>
 	</BrowserRouter>;
